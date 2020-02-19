@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:keydown</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+
+
+	</head>
+
+	<body>
+		<div id="app">
+			{{message}}<br/>
+
+			Vue:<input type="text" v-on:keydown="function1($event)"><br/>
+			<!--传统方式-->
+			传统方式<input type="text" id="input_traditional" onkeydown="showkeycode() ">
+		</div>
+	</body>
+
+	<script>
+
+		//view model
+		new Vue({
+			el:"#app",
+			data:{
+				message: "hello vue ! "
+			},
+			methods:{
+				// $event 是 vue 的时间对象 和传统的event 时间是一样的 用$ 获取
+				function1:function (event) {
+					var keycode= event.keyCode;
+					if(keycode<48 || keycode>57){
+						//阻止 键盘事件 只能输入0-9
+						event.preventDefault();
+					}
+				}
+			}
+			
+		});
+
+
+		//传统js的键盘按下事件
+		function showkeycode(){
+			if(event.keyCode<48 || event.keyCode>57){
+				event.preventDefault();
+			}
+			alert("on key down !" + even.keyCode );  //浏览器不支持了
+
+		}
+
+
+	</script>
+	
+	
+
+</html>

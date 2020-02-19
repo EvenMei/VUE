@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-for遍历对象</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(key,value) in product">{{value}}-------{{key}}</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		//view model
+        new Vue({
+			el:"#app",
+			data:{
+				product:{
+					id:"001",
+					name:"笔记本电脑",
+					price:"5400"
+				}
+			},
+			methods:{
+
+			}
+		});
+	</script>
+</html>

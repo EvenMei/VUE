@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:mouseover</title>
+		<style>
+			#div_mouse {
+				background-color: red;
+				width:300px;
+				height:300px;
+				margin-top: 50px;
+			}
+
+			#div {
+				background-color: purple;
+				width:300px;
+				height:300px;
+
+				
+			}
+
+
+		</style>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+
+			{{message}}<br/>
+
+			<!--
+			@ == v-on:
+			 -->
+			<div v-on:mouseover="function1" id="div">
+				<textarea  @mouseover.stop="function2($event)"> vue：这是一个文件域</textarea><!--@mouseover.stop="function2($event)"-->
+			</div>
+
+			<!--传统方式 实现 鼠标移动监听-->
+			<div onmousemove="divmouseover()" id="div_mouse">
+				<textarea  onmousemove="txtmouseover()"> 传统方式：这是一个文件域</textarea>
+			</div>
+
+		</div>
+	</body>
+
+	<script>
+		//view model
+
+
+		// 传统方式
+		function divmouseover () {
+			alert("鼠标移动到 div区域");
+		}
+
+		function txtmouseover () {
+			alert("鼠标移动到 text 区域");
+			//不希望在把事件传播到div上
+			event.stopPropagation();
+		}
+
+		new Vue({
+			el:"#app",
+			data:{
+				message:"hahahah! "
+			},
+			methods:{
+				function1:function () {
+					alert("鼠标停留在div上");
+				},
+
+				function2:function () {
+					alert("鼠标停留在 text 上");
+					//event.stopPropagation();  // 等价于 @mouseover.stop
+				}
+			}
+
+		});
+
+
+
+		
+	</script>
+
+</html>

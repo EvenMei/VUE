@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-model</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+			<form action="" method="post">
+				用户名：<input type="text" name="username" v-model="user.username"><br/>  // 类似 EL表达式
+				密码：<input type="text" name="password" v-model="user.password"><br/>  //类似EL表达式
+			</form>
+
+
+			<!--传统方式-->
+			<form action="" method="post">
+				用户名：<input type="text" name="username" value="user.username"><br/>  // 获取不到数据
+				密码：<input type="text" name="password" value="user.password"><br/>   //获取不到数据
+			</form>
+		</div>
+
+
+		<script>
+			//view model
+			new Vue({
+				el:"#app",
+				data:{
+					user:{
+						id:"01",
+						username:"meiyukai",
+						password:"1111",
+						age:"24"
+					}
+				},
+				methods:{
+
+				}
+
+			});
+		</script>
+
+
+	</body>
+
+
+
+</html>

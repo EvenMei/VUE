@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>快速入门</title>
+		<script src="/js/vuejs-2.5.16.js"></script>
+	</head>
+
+	<body>
+	<div  id="app">
+		{{message }} <!-- vue的插值表达式，将data中定义的数据显示到此处 只能直接显示数据，不可以进行逻辑处理-->	<br/>
+
+		<!--三元运算符-->
+		{{true ? "ok":"not"}}	<br/>
+
+		<!--算数运算-->
+		{{number * 3.14}}	<br/>
+
+		<!--不可以声明变量-->
+	<!--	{{var i =100}}<br/>-->
+
+		<!--不支持if 表达式-->
+		<!--{{ if(a==10){}  }}-->
+
+
+
+
+	</div>
+
+	</body>
+
+	<script>
+		//view model
+		//创建vue 对象
+		 new Vue({
+			 el: "#app",   //由vue 接管id为app区域
+			 data: {
+			 	message : "hello vue" , //此处不要加分号
+				 number: 100
+			 }
+
+		 });
+
+
+	</script>
+
+</html>

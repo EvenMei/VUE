@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:click</title>
+		<script src="js/vuejs-2.5.16.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+			<button v-on:click="function1(9999)" >vue的click事件</button>
+		</div>
+	</body>
+	<script>
+		//view model
+
+		new Vue({
+			el:"#app",  //获取接管的区域的id
+			data:{
+				message:"hello meiyukai!"
+			},
+
+			methods:{
+				 function1:function (msg) {
+					 alert("function: function1执行了！");
+					 this.message = msg;
+				 }
+			}
+
+		});
+
+	</script>
+</html> 
